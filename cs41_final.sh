@@ -75,6 +75,7 @@ do
 
   elif [ userIn = "4" ]; then
     # do something
+    :
 
   elif [ userIn = "5" ]; then 
     echo "Last 10 users logged in: "
