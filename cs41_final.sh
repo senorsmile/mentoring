@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
 ###########################
 ###FUNCTION DECLARATIONS###
 ###########################
 
-function show_banner{
+function show_banner{ 
   echo "Name of Server: $servName\n
         Server IP Address: $servIP\n
         Number of Current Users: $noUsers\n
