@@ -5,7 +5,7 @@
 ###FUNCTION DECLARATIONS###
 ###########################
 
-function show_banner{
+show_banner() {
   echo "Name of Server: $servName\n
         Server IP Address: $servIP\n
         Number of Current Users: $noUsers\n
@@ -16,19 +16,19 @@ function show_banner{
 }
 
 
-function list_active_procs{
+list_active_procs() {
   # do something
   exit 2
 }
 
 
-function monitor_active_procs{
+monitor_active_procs() {
   # do something
   exit 3
 }
 
 
-function live_monitor{
+live_monitor() {
   # do something
   exit 9
 }
@@ -42,7 +42,7 @@ function live_monitor{
 
 while [ $userIn != "0" ]; 
 do
-  # call function show_banner()
+  # call function show_banner() {
 
   echo "Please select from the following processes: 
 
