@@ -1,106 +1,134 @@
 #!/bin/bash
 
-
-###########################
-###FUNCTION DECLARATIONS###
-###########################
-
-function show_banner{
-  echo "Name of Server: $servName\n
-        Server IP Address: $servIP\n
-        Number of Current Users: $noUsers\n
-        Date and time: $date_and_time\n
-        OS Version: $osVersion\n
-        User Name of party: $nameUser\n\n"
-  exit 1
+show_banner(){
+  NORMAL=`echo "\033[m"`
+  MENU=`echo "\033[36m"` #Blue
+  NUMBER=`echo "\033[33m"` #yellow
+  FGRED=`echo "\033[41m"`
+  RED_TEXT=`echo "\033[31m"`
+  ENTER_LINE=`echo "\033[33m"`
+  echo -e "${MENU}*********************************************${NORMAL}"
+  echo -e "${MENU}*************** System Report ***************${NORMAL}"
+  echo -e "${MENU}*********************************************${NORMAL}"
+  echo -e "${MENU}${NUMBER} Name of Server:${MENU} $servName ${NORMAL}"
+  echo -e "${MENU}${NUMBER} Server IP Address:${MENU} $servIP ${NORMAL}"
+  echo -e "${MENU}${NUMBER} Number of Current Users: ${MENU} $numUsers ${NORMAL}"
+  echo -e "${MENU}${NUMBER} Date and Time:${MENU} $dateTime ${NORMAL}"
+  echo -e "${MENU}${NUMBER} OS Version:${MENU} $osVersion ${NORMAL}"
+  echo -e "${MENU}${NUMBER} Current User Name:${MENU} $userName ${NORMAL}"
+  echo -e "${MENU}*********************************************${NORMAL}"
+  echo -e "${MENU}*********************************************${NORMAL}"
 }
 
-
-function list_active_procs{
-  # do something
-  exit 2
+show_menu(){
+    NORMAL=`echo "\033[m"`
+    MENU=`echo "\033[36m"` #Blue
+    NUMBER=`echo "\033[33m"` #yellow
+    FGRED=`echo "\033[41m"`
+    RED_TEXT=`echo "\033[31m"`
+    ENTER_LINE=`echo "\033[33m"`
+    echo -e "${MENU}*****************************************************************${NORMAL}"
+    echo -e "${ENTER_LINE}Please select from the above options and enter. ${RED_TEXT}Enter 0 to exit. ${NORMAL}"  
+    echo -e "${MENU}*****************************************************************${NORMAL}"
+    echo -e "${MENU}${NUMBER} 1)${MENU} List currently logged-in users ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 2)${MENU} List all active processes for a user ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 3)${MENU} Monitor active processes for a user ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 4)${MENU} Kill a process ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 5)${MENU} Show last 10 users ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 6)${MENU} Show free disk space ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 7)${MENU} Show diskpace use by user ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 8)${MENU} Find large files (>100MB) ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 9)${MENU} Display live monitor ${NORMAL}"
+    echo -e "${MENU}${NUMBER} 0)${MENU} Exit ${NORMAL}"
+    echo -e "${MENU}*****************************************************************${NORMAL}"
+    read userChoice
 }
 
-
-function monitor_active_procs{
-  # do something
-  exit 3
+function option_picked() {
+    COLOR='\033[01;31m' # bold red
+    RESET='\033[00;00m' # normal white
+    MESSAGE=${@:-"${RESET}Error: Invalid Option."}
+    echo -e "${COLOR}${MESSAGE}${RESET}"
 }
 
-
-function live_monitor{
-  # do something
-  exit 9
+good_bye(){
+  NORMAL=`echo "\033[m"`
+  MENU=`echo "\033[36m"` #Blue
+  RED_TEXT=`echo "\033[31m"`
+  echo -e "${MENU}*********************************************${NORMAL}"
+  echo -e "${MENU}***************** ${RED_TEXT}GOOD BYE ${MENU}******************${NORMAL}"
+  echo -e "${MENU}*********************************************${NORMAL}"
 }
+clear
+show_banner
+echo " ";
+show_menu
 
-
-###########################
-#######MAIN  PROGRAM####### 
-###########################
-
-# Menu displays and executes options
-
-while [ $userIn != "0" ]; 
-do
-  # call function show_banner()
-
-  echo "Please select from the following processes: 
-
-        1. List currently logged in users
-        2. List all active processes for a user.
-        3. Monitor active processes for user.
-        4. Kill a process
-        5. Show the last 10 users logged in
-        6. Show free disk space
-        7. show disk space used by user home dir (prompt username)
-        8. Find large files (>100MB)
-        9. Live monitor 
-        0. Exit"
-
-  read userIn
-      
-    if [ userIn = "1" ]; then
-        # list currently logged in users
-
-      elif [ userIn = "2" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: list all active process
+while [ userChoice != '0' ]
+    do
+    if [[ $userChoice = "0" ]]; then
+      good_bye
+      exit;
     
-      elif [ userIn = "3" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: Monitor active processes
+    else
+      case $userChoice in
+        1) clear;
+        option_picked "Option 1: List of current Users";
+        #do something
+        show_menu;
+        ;;
 
-      elif [ userIn = "4" ]; then
-        # do something
+        2) clear;
+        option_picked "Option 2: List of active processes for user ${userName}";
+        #do something
+        show_menu;
+        ;;
 
-      elif [ userIn = "5" ]; then 
-        echo "Last 10 users logged in: "
-        # call a for loop?
-        # do something
+        3) clear;
+        option_picked "Option 3: Active processes for user ${userName}";
+        #do something;
+        show_menu;
+        ;;
 
-      elif [ userIn = "6" ]; then
-        # do someting
+        4) clear;
+        option_picked "Option 4: Kill Process";
+        #do something
+        show_menu;
+        ;;
 
-      elif [ userIn = "7" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: Show diskspace used by home dir.
+        5) clear
+        option_picked "Option 5: Show last 10 users";
+        #do something
+        show_menu;
+        ;;
 
-      elif [ userIn = "8" ]; then
-       # do something
+        6) clear;
+        option_picked "Option 6: Show free disk space";
+        #do something
+        show_menu;
+        ;;
 
-      elif [ userIn = "9" ]; then
-        # do someting: Live monitor
-            # calls second script
-            # (shows time, CPU util, current memory utilization, 
-            #  current disk space utiliztion, currently logged in users. 
-            #  Refreshes every 5 seconds until any key is pressed.)
+        7) clear;
+        option_picked "Option 7: Show disk space for user home directory";
+        #do something
+        show_menu;
+        ;;
+        
+        8) clear;
+        option_picked "Option 8: Find files larger than 100MB";
+        #do something
+        show_menu;
+        ;;
 
-      else 
-        echo "Invalid input.  Please select a valid option. "
+        9) clear;
+        option_picked "Option 9: Live Monitor";
+        #do something
+        show_menu;
+        ;;
+
+        0)exit;
+        ;;
+
+      esac
     fi
 done
-
-
