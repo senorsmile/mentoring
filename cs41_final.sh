@@ -59,48 +59,48 @@ do
 
   read userIn
       
-    if [ userIn = "1" ]; then
-        # list currently logged in users
+  if [ userIn = "1" ]; then
+      # list currently logged in users
 
-      elif [ userIn = "2" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: list all active process
-    
-      elif [ userIn = "3" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: Monitor active processes
+  elif [ userIn = "2" ]; then
+    echo -n "Please enter user name: "
+    read userName
+    # do something: list all active process
 
-      elif [ userIn = "4" ]; then
-        # do something
+  elif [ userIn = "3" ]; then
+    echo -n "Please enter user name: "
+    read userName
+    # do something: Monitor active processes
 
-      elif [ userIn = "5" ]; then 
-        echo "Last 10 users logged in: "
-        # call a for loop?
-        # do something
+  elif [ userIn = "4" ]; then
+    # do something
 
-      elif [ userIn = "6" ]; then
-        # do someting
+  elif [ userIn = "5" ]; then 
+    echo "Last 10 users logged in: "
+    # call a for loop?
+    # do something
 
-      elif [ userIn = "7" ]; then
-        echo -n "Please enter user name: "
-        read userName
-        # do something: Show diskspace used by home dir.
+  elif [ userIn = "6" ]; then
+    # do someting
 
-      elif [ userIn = "8" ]; then
-       # do something
+  elif [ userIn = "7" ]; then
+    echo -n "Please enter user name: "
+    read userName
+    # do something: Show diskspace used by home dir.
 
-      elif [ userIn = "9" ]; then
-        # do someting: Live monitor
-            # calls second script
-            # (shows time, CPU util, current memory utilization, 
-            #  current disk space utiliztion, currently logged in users. 
-            #  Refreshes every 5 seconds until any key is pressed.)
+  elif [ userIn = "8" ]; then
+   # do something
 
-      else 
-        echo "Invalid input.  Please select a valid option. "
-    fi
+  elif [ userIn = "9" ]; then
+    # do someting: Live monitor
+        # calls second script
+        # (shows time, CPU util, current memory utilization, 
+        #  current disk space utiliztion, currently logged in users. 
+        #  Refreshes every 5 seconds until any key is pressed.)
+
+  else 
+    echo "Invalid input.  Please select a valid option. "
+  fi
 done
 
 
