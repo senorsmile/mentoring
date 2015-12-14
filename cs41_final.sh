@@ -11,7 +11,7 @@ function show_banner{
         Date and time: $date_and_time\n
         OS Version: $osVersion\n
         User Name of party: $nameUser\n\n"
-  exit 1
+  exit 1 
 }
 
 
