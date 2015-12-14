@@ -60,7 +60,8 @@ do
   read userIn
       
   if [ userIn = "1" ]; then
-      # list currently logged in users
+    # list currently logged in users
+    :
 
   elif [ userIn = "2" ]; then
     echo -n "Please enter user name: "
