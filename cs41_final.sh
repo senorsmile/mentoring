@@ -5,6 +5,11 @@
 ###FUNCTION DECLARATIONS###
 ###########################
 
+not_yet_working() {
+  echo "This function is not yet fully written"
+  exit 1
+}
+
 show_banner() {
   echo "Name of Server: $servName\n
         Server IP Address: $servIP\n
@@ -61,39 +66,47 @@ do
       
   if [ userIn = "1" ]; then
     # list currently logged in users
-    :
+    not_yet_working
 
   elif [ userIn = "2" ]; then
     echo -n "Please enter user name: "
     read userName
+    not_yet_working
     # do something: list all active process
 
   elif [ userIn = "3" ]; then
     echo -n "Please enter user name: "
     read userName
+    not_yet_working
     # do something: Monitor active processes
 
   elif [ userIn = "4" ]; then
     # do something
-    :
+    not_yet_working
 
   elif [ userIn = "5" ]; then 
     echo "Last 10 users logged in: "
+    not_yet_working
     # call a for loop?
     # do something
 
   elif [ userIn = "6" ]; then
+    not_yet_working
     # do someting
 
   elif [ userIn = "7" ]; then
+    not_yet_working
     echo -n "Please enter user name: "
     read userName
     # do something: Show diskspace used by home dir.
 
   elif [ userIn = "8" ]; then
-   # do something
+    not_yet_working
+    # do something
+    :
 
   elif [ userIn = "9" ]; then
+    not_yet_working
     # do someting: Live monitor
         # calls second script
         # (shows time, CPU util, current memory utilization, 
